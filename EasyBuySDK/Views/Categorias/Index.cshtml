@@ -1,0 +1,39 @@
+﻿@model IEnumerable<EasyBuySDK.Models.Categoria>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="cardview">
+    <h2>Categorias</h2>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Tipo)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tipo)
+                </td>
+                <td>
+                    <a class="btn btn-warning" href="@Url.Action("Edit", "Categorias",new { id = item.Id })">
+                        <h5 class="glyphicon glyphicon-pencil"></h5>
+                    </a>
+                    |
+                    <a class="btn btn-danger" href="@Url.Action("Delete", "Categorias",new { id = item.Id })">
+                        <h5 class="glyphicon glyphicon-trash"></h5>
+                    </a>
+
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</div>

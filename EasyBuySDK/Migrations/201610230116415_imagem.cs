@@ -1,0 +1,20 @@
+namespace EasyBuySDK.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class imagem : DbMigration
+    {
+        public override void Up()
+        {
+            AddColumn("dbo.Estabelecimento", "CaminhoImagem", c => c.String());
+            AddColumn("dbo.Produto", "CaminhoImagem", c => c.String());
+        }
+        
+        public override void Down()
+        {
+            DropColumn("dbo.Produto", "CaminhoImagem");
+            DropColumn("dbo.Estabelecimento", "CaminhoImagem");
+        }
+    }
+}

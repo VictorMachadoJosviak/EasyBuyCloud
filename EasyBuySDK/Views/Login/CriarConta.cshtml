@@ -1,0 +1,50 @@
+﻿@model EasyBuySDK.Models.Usuario
+@{
+    ViewBag.Title = "CriarConta";
+}
+
+
+
+<div class="form-group" style="margin-left:35%;width:35%">
+    @using (Html.BeginForm("CriarConta", "Login", FormMethod.Post, new { enctype = "multipart/form-data",@class= "cardview" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <h1>Criar uma conta</h1>
+
+        <h4>Preencha seus dados:</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <label class="margin_gambi_left">Nome</label>
+            @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control margin_gambi_left", placeholder = "ex:João,Maria,etc..." } })
+            @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+
+            <br />
+
+            <label class="margin_gambi_left">Email</label>
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control margin_gambi_left" , placeholder = "email@example.com" } })
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+
+            <br />
+
+
+            <label class="margin_gambi_left">Senha</label>
+            @Html.EditorFor(model => model.Senha, new { htmlAttributes = new { @class = "form-control margin_gambi_left", @type = "password", placeholder = "**********" } })
+            @Html.ValidationMessageFor(model => model.Senha, "", new { @class = "text-danger" })
+
+            <br>
+
+            <label class="margin_gambi_left">Confirmar senha</label>
+            @Html.EditorFor(model => model.ConfirmaSenha, new { htmlAttributes = new { @class = "form-control margin_gambi_left", @type = "password", placeholder = "**********" } })
+            @Html.ValidationMessageFor(model => model.ConfirmaSenha, "", new { @class = "text-danger" })
+
+            <br>
+
+            <input type="submit" value="Aceitar os termos e cadastrar" class="btn btn-primary margin_gambi_left" style="width:100%" />
+            <br><br>
+            <a class="btn btn-default button_width_gambi margin_gambi_left" href="@Url.Action("Login","Login")">Entrar</a>
+
+    }
+
+</div>

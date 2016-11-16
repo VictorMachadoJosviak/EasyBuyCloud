@@ -1,0 +1,42 @@
+﻿@model EasyBuySDK.Models.Usuario
+@{
+    ViewBag.Title = "Login";
+}
+
+
+    <div class="form-group" style="margin-left:33%;width:35%">
+
+        @using (Html.BeginForm("Login", "Login", FormMethod.Post, new { enctype = "multipart/form-data", @class = "cardview" }))
+        {
+
+
+            @Html.AntiForgeryToken()
+
+            <h2>Login</h2>
+            <hr />
+
+            <label class="margin_gambi_left">Email</label>
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control margin_gambi_left", placeholder = "email@example.com" } })
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+
+            <br />
+
+            <label class="margin_gambi_left">Senha</label>
+            @Html.EditorFor(model => model.Senha, new { htmlAttributes = new { @class = "form-control margin_gambi_left", @type = "password", placeholder = "************" } })
+            @Html.ValidationMessageFor(model => model.Senha, "", new { @class = "text-danger" })
+            <br />
+            <div class="margin_gambi_left">
+                @Html.CheckBox("permanecerLogado") <label style="margin-left:10px">Permanecer Logado</label>
+            </div>
+
+            <br />
+
+            <input type="submit" value="Login" class="btn btn-primary button_width_gambi margin_gambi_left" style="width:100%" /><br><br>
+            <a href="@Url.Action("CriarConta","Login")" class="btn btn-default button_width_gambi margin_gambi_left">Ciar Conta</a>
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+
+        }
+    </div>

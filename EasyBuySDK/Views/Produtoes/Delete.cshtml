@@ -1,0 +1,60 @@
+﻿@model EasyBuySDK.Models.Produto
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div class="cardview">
+
+
+    <div class="alert alert-danger">
+
+        <h1><b>Excluir</b></h1>
+        
+        <h3>Deseja realmente excluir?</h3>
+    </div>
+
+
+    <div>
+        <h4>Produto</h4>
+        <hr />
+        <dl class="dl-horizontal">
+      
+            <dt>
+                @Html.DisplayNameFor(model => model.Marca)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Marca)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Preco)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Preco)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Disponivel)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Disponivel)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <a href="@Url.Action("Index","Produtoes")" class="btn btn-primary">Voltar</a>
+                <input type="submit" value="Excluir" class="btn btn-default" /> 
+                
+            </div>
+        }
+    </div>
+</div>

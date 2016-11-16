@@ -1,0 +1,51 @@
+﻿@model IEnumerable<EasyBuySDK.Models.Estabelecimento>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<div class="cardview">
+
+    <h2>Estabelecimentos</h2>
+
+    <table class="table ">
+        <tr>
+            <th>Image</th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Endereco)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+    {
+            <tr>
+                <td>
+                    <img src="~/Images/@item.CaminhoImagem" style="width:50px;height:50px" />
+                </td>
+                <td style="width:250px;">
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td style="width:330px;">
+                    @Html.DisplayFor(modelItem => item.Endereco)
+                </td>
+                <td>
+                    <a class="btn btn-warning" href="@Url.Action("Edit", "Estabelecimentoes",new { id = item.Id })">
+                        <h5 class="glyphicon glyphicon-pencil"></h5>
+                    </a>   
+                    <a class="btn btn-primary"  href="@Url.Action("Details", "Estabelecimentoes",new { id = item.Id })">
+                        <h5 class="glyphicon glyphicon-file"></h5>
+                    </a> 
+                    <a class="btn btn-danger" href="@Url.Action("Delete", "Estabelecimentoes",new { id = item.Id })">
+                        <h5 class="glyphicon glyphicon-trash"></h5>
+                    </a>
+                </td>
+            </tr>
+    }
+    </table>
+</div>

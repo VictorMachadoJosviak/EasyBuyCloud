@@ -1,0 +1,62 @@
+﻿@model EasyBuySDK.Models.Produto
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Produto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Categoria.Tipo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Categoria.Tipo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estabelecimento.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estabelecimento.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Marca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Marca)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Preco)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Preco)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Disponivel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Disponivel)
+        </dd>
+
+    </dl>
+</div>
+<a class="btn btn-primary" href="@Url.Action("Index", "Produtoes")">
+    <h5 class="glyphicon glyphicon-arrow-left"></h5>
+</a>
+
+<a class="btn btn-warning" href="@Url.Action("Edit", "Produtoes",new { id = Model.Id })">
+    <h5 class="glyphicon glyphicon-pencil"></h5>
+</a>
+

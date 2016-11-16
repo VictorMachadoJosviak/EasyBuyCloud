@@ -1,0 +1,68 @@
+﻿body {
+    font-family: "Lato", sans-serif;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #808080;
+    margin: 1em 0;
+    padding: 0;
+}
+
+.header_layout {
+    margin-bottom: 20px;
+    background-image: url("http://freshwallpapers.net/download/6352/1920x1080/download/material-design-blue-scheme.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #1b1e3b;
+    overflow-x: hidden;
+    transition: 0.5s;
+    margin-top: 50px;
+}
+
+    .sidenav a {
+        padding: 5px 5px 10px 0px;
+        text-decoration: none;
+        font-size: 15px;
+        color: #808080;
+        display: block;
+        transition: 0.3s;
+    }
+
+        .sidenav a:hover, .offcanvas a:focus {
+            color: #f1f1f1;
+        }
+
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+
+#main {
+    transition: margin-left .5s;
+    padding: 4px;
+}
+
+/*@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+        .sidenav a {
+            font-size: 18px;
+        }
+}*/

@@ -1,0 +1,62 @@
+﻿@model EasyBuySDK.Models.Produto
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="cardview" onMouseOver="chamaMarcacaoEndereco(@Json.Encode(Model.Estabelecimento.Endereco))">
+    <h2>Detahle do Produto</h2>
+    <h4>Produto</h4>
+    <hr />
+
+    <div style="background-color:#e6e6e6;padding-top:16px;padding-bottom:10px; margin-bottom:16px;">
+
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Categoria.Tipo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Categoria.Tipo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Estabelecimento.Nome)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Estabelecimento.Nome)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Marca)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Marca)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Preco)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Preco)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Disponivel)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Disponivel)
+            </dd>
+        </dl>
+    </div>
+
+    <div onload="">
+
+        <div id="map_canvas" style="width: 100%; height: 432px">
+        </div>
+    </div>
+</div>

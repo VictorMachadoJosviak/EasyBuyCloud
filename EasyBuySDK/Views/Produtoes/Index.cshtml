@@ -1,0 +1,83 @@
+﻿@model IEnumerable<EasyBuySDK.Models.Produto>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="cardview">
+    <h2>Produtos</h2>
+
+    <div class="form-group">
+        <center>
+
+            @using (Html.BeginForm("Index", "Produtoes", FormMethod.Post, new { @class = "navbar-form navbar-default", @style = "margin-top:40px; align-items:center role=search" }))
+            {
+                <div class="form-group">
+                    @Html.TextBox("txtPesquisar", null, new { @class = "form-control", placeholder = "Pesquisar..." })
+                </div>
+
+                <button type="submit" class="btn btn-default">
+                    <img src="~/Images/magnify.png" height="20" />
+                </button>
+            }
+        </center>
+    </div>
+
+    <table class="table">
+        <tr>
+            <th>Imagem</th>
+            <th>
+                @Html.DisplayNameFor(model => model.Categoria.Tipo)
+            </th>
+            <th>
+                Estabelecimento
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Marca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Preco)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Disponivel)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    <img src="~/Images/@item.CaminhoImagem" style="width:50px;height:50px" />
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Categoria.Tipo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Estabelecimento.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Marca)
+                </td>
+                <td>
+                    R$  @Html.DisplayFor(modelItem => item.Preco)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Disponivel)
+                </td>
+                <td>
+
+                    <a class="btn btn-warning" href="@Url.Action("Edit", "Produtoes",new { id = item.Id })">
+                        <h5 class="glyphicon glyphicon-pencil"></h5>
+                    </a>   |
+
+                    <a class="btn btn-danger" href="@Url.Action("Delete", "Produtoes",new { id = item.Id })">
+                        <h5 class="glyphicon glyphicon-trash"></h5>
+                    </a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>

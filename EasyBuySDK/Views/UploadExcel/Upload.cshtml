@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Upload";
+}
+
+
+
+<div class="container">
+
+
+    <div class="col-md-6 col-lg-6" style="margin-left:25%">
+
+        <div class="cardview">
+
+            <h1>Importar dados Excel</h1>
+
+            <hr />
+
+
+            @using (Html.BeginForm("Upload", "UploadExcel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-group">
+
+                    <div class="form-inline">
+                        @Html.Label("Arquivo Excel: ", null, new { @class = "control-label" })
+                        <label class="btn btn-primary btn-file" style="width:58%"> Selecionar Arquivo <input type="file" name="fileExcel" /> </label>
+                    </div>
+
+                    <input type="submit" value="Gravar Excel" class="btn btn-success outra-margin-gambi-de-botao" style="margin-top:15px;width:300px" />
+                    <label style="color:#ff0000;">@ViewBag.Erro</label>
+
+                </div>
+
+            }
+
+        </div>
+
+    </div>
+</div>
